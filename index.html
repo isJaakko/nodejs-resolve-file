@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>upload</title>
+  <style>
+    .box {
+      margin: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input id="upload" type="file" />
+    <button id="submit">上传</button>
+  </div>
+  <button id="getData">获取文件解析数据</button>
+</body>
+<script>
+  // 上传文件
+  const Upload = document.getElementById('upload');
+  const Submit = document.getElementById('submit');
+  const handleFile = () => {
+    const formData = new FormData();
+
+    // 建立一个upload表单项，值为上传的文件
+    formData.append('upload', document.getElementById('upload').files[0]);
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', 'http://127.0.0.1:3060/api/upload');
+
+    // 定义上传完成后的回调函数
+    xhr.onload = () => {
+
+      if (xhr.status === 200) {
+        console.log('上传成功');
+      } else {
+        console.log('出错了');
+      }
+
+    };
+    xhr.send(formData);
+  }
+  Submit.addEventListener('click', handleFile);
+
+
+
+  // 获取文件解析数据
+  const getData = document.getElementById('getData');
+  getData.addEventListener('click', () => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('get', 'http://127.0.0.1:3060/api/getdata');
+
+    // 定义上传完成后的回调函数
+    xhr.onload = () => {
+
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        console.log(data);
+      } else {
+        console.log('出错了');
+      }
+
+    };
+    xhr.send(null);
+  });
+</script>
+
+</html>

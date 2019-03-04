@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-resolve-file",
+  "version": "1.0.0",
+  "description": "Use nodejs to resolve file(excel).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isJaakko/nodejs-resolve-file.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isJaakko/nodejs-resolve-file/issues"
+  },
+  "homepage": "https://github.com/isJaakko/nodejs-resolve-file#readme",
+  "dependencies": {
+    "busboy": "^0.3.0",
+    "isomorphic-fetch": "^2.2.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
+    "koa-static": "^5.0.0",
+    "koa2-connect-history-api-fallback": "0.0.6",
+    "xlsx": "^0.14.1"
+  }
+}
